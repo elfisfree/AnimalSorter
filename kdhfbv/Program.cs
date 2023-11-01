@@ -26,9 +26,9 @@ public class Program
         animals.Add(animalFactory.CreateAnimal("human"));
         animals[2].Name = "Мерил Стрип";
         animals[2].Age = 74;
-        animals[2].Gender = "Мраморная плитка. Дом видели? Как в Эрмитаже. А так вроде женщина(особый инстинкт :(";
-        animals[2].Breed = "Еврей. Актриса 3 оскара 23 номинации на оскар; не смотрите особый инстинкт";
-        animals[2].Color = "Была брюнетка, но щас седая лол";
+        animals[2].Gender = "Мраморная плитка. Дом видели? Как в Эрмитаже.";
+        animals[2].Breed = "Еврей";
+        animals[2].Color = "Белая";
         animals[2].Kind = "Человек";
 
         animals.Add(animalFactory.CreateAnimal("cat"));
@@ -46,11 +46,44 @@ public class Program
         animals[4].Breed = "Амурский тигр";
         animals[4].Color = "Оранжевый в черно-белую полоску";
         animals[4].Kind = "Тигр";
-        animalSorter.BubbleSort(animals);
-        foreach (Animal animal in animals)
+
+        bool exit = false;
+
+        while (!exit)
         {
-            Console.WriteLine($"Это {animal.Kind} {animal.Name} || Порода: {animal.Breed} || Пол: {animal.Gender} || Цвет: {animal.Color} || Возраст: {animal.Age} лет");
-            animal.Eat();
+            Console.WriteLine("До сортировки списка");
+            Console.WriteLine("-----------------");
+            foreach (Animal animal in animals)
+            {
+                Console.WriteLine($"Это {animal.Kind} {animal.Name}  Порода: {animal.Breed}  Пол: {animal.Gender}  Цвет кожи/шерсти: {animal.Color}  Возраст: {animal.Age} лет");
+                animal.Eat();
+                Console.WriteLine("-----------------");
+            }
+            Console.WriteLine("-----------------");
+            Console.WriteLine(" Для сортировки списка нажмите с");
+            var cont = Console.ReadKey().Key;
+            if (cont == ConsoleKey.C || cont == ConsoleKey.C)
+            {
+                Console.WriteLine(" После сортировки по возрасту:");
+                Console.WriteLine("-----------------");
+                animalSorter.BubbleSort(animals);
+                foreach (Animal animal in animals)
+                {
+                    Console.WriteLine($"Это {animal.Kind} {animal.Name}  Порода: {animal.Breed}  Пол: {animal.Gender}  Цвет: {animal.Color}  Возраст: {animal.Age} лет");
+                    animal.Eat();
+                    Console.WriteLine("-----------------");
+                }
+            }
+
+
+
+            Console.WriteLine("Для выхода из приложения нажмите 'q', для продолжения - любую другую клавишу");
+            var key = Console.ReadKey().Key;
+
+            if (key == ConsoleKey.Q || key == ConsoleKey.Q)
+            {
+                exit = true;
+            }
         }
     }
 }
