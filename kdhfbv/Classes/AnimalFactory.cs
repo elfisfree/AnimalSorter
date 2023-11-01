@@ -15,7 +15,10 @@
                     animal = new Cat();
                     break;
                 case "tiger":
-                    animal = new Cat();
+                    animal = new Tiger();
+                    break;
+                case "human":
+                    animal = new Human();
                     break;
                 default:
                     Console.WriteLine($"Неправильный вывод: {type}");

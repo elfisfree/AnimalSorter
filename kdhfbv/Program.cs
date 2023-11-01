@@ -8,10 +8,10 @@ public class Program
 
         List<Animal> animals = new List<Animal>();
         animals.Add(animalFactory.CreateAnimal("dog"));
-        animals[0].Name = "Голди Хоун";
+        animals[0].Name = "Голди";
         animals[0].Age = 3;
         animals[0].Gender = "Сучка";
-        animals[0].Breed = "Шотландец";
+        animals[0].Breed = "Джек Рассел";
         animals[0].Color = "Серый";
         animals[0].Kind = "Собака";
 
@@ -23,13 +23,13 @@ public class Program
         animals[1].Color = "Черная с белыми пятнышками";
         animals[1].Kind = "Кошка";
 
-        animals.Add(animalFactory.CreateAnimal("dog"));
+        animals.Add(animalFactory.CreateAnimal("human"));
         animals[2].Name = "Мерил Стрип";
-        animals[2].Age = 999;
-        animals[2].Gender = "Мраморная плитка. Дом видели? Как в Эрмитаже";
-        animals[2].Breed = "Актриса 3 оскара 23 номинации на оскар; миллиард золотых глобусов, есть тэффи, не смотрите особый инстинкт";
-        animals[2].Color = "То ли блонд то ли брюнетка, но щас седая лол ";
-        animals[2].Kind = "Псина";
+        animals[2].Age = 74;
+        animals[2].Gender = "Мраморная плитка. Дом видели? Как в Эрмитаже. А так вроде женщина(особый инстинкт :(";
+        animals[2].Breed = "Еврей. Актриса 3 оскара 23 номинации на оскар; не смотрите особый инстинкт";
+        animals[2].Color = "Была брюнетка, но щас седая лол";
+        animals[2].Kind = "Человек";
 
         animals.Add(animalFactory.CreateAnimal("cat"));
         animals[3].Name = "Очкопус";
@@ -50,6 +50,7 @@ public class Program
         foreach (Animal animal in animals)
         {
             Console.WriteLine($"Это {animal.Kind} {animal.Name} || Порода: {animal.Breed} || Пол: {animal.Gender} || Цвет: {animal.Color} || Возраст: {animal.Age} лет");
+            animal.Eat();
         }
     }
 }
